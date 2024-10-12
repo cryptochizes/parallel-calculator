@@ -26,33 +26,30 @@ export class EvaluateInputUseCase extends UseCase<
     this.logger = new Logger(EvaluateInputUseCase.name);
   }
 
-  onModuleInit() {
-    this.pool = pool('./dist/infrastructure/workers/evaluate.service.js', {
-      minWorkers: 'max',
-      maxWorkers: 7,
-    });
-
-    // new Worker('./src/infrastructure/workers/evaluate.service.ts', {
-    //   // workerData: dto,
-    //   execArgv: ["--require", "ts-node/register"]
-    // });
-  }
+  // was used for testing worker_threads and workerpool
+  // onModuleInit() {
+  //   // this.pool = pool('./dist/infrastructure/workers/evaluate.service.js', {
+  //   //   minWorkers: 'max',
+  //   //   maxWorkers: 7,
+  //   // });
+  // }
 
   async execute(dto: IDecomposeEvaluationInput): Promise<number> {
-    // this.logger.log(`Processing created Ethereum transaction: ${dto.expression}`);
+    this.logger.log(`Processing created Ethereum transaction: ${dto.expression}`);
 
-    // const postfixNotation = this.convertToPostfixNotation(dto.expression);
+    const postfixNotation = this.convertToPostfixNotation(dto.expression);
 
-    // // console.log(`Reverse Polish Notation: ${postfixNotation}`);
+    // console.log(`Reverse Polish Notation: ${postfixNotation}`);
 
-    // const result = this.evaluatePostfixNotation(postfixNotation);
+    const result = this.evaluatePostfixNotation(postfixNotation);
 
-    // // console.log(`Result: ${result} for expression: ${dto.expression}`);
+    // console.log(`Result: ${result} for expression: ${dto.expression}`);
 
-    // return result;
+    return result;
 
-    return await this.pool
-      .exec('evaluateExpression', [dto])
+    // was used for testing worker_threads and workerpool
+    // return await this.pool
+    //   .exec('evaluateExpression', [dto])
   }
 
   // RPN
