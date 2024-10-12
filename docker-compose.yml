@@ -1,0 +1,27 @@
+version: "3"
+services:
+  calculator:
+    container_name: calculator
+    build:
+      context: .
+      dockerfile: ./infra/docker/dockerfile.bridge
+    command: >
+      sh -c "
+      echo calculator is ready to fly!;
+      yarn start:dev
+      "
+    ports:
+      - "8080:8080"
+      - "9229:9229"
+    env_file:
+      - .env
+    volumes:
+      - ./src:/app/src
+      - ./test:/app/test
+    networks:
+      - public
+volumes:
+  db_volume:
+networks:
+  public:
+    external: true
