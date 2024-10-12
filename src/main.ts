@@ -15,8 +15,6 @@ import * as os from 'os';
 
 const numCPUs = os.cpus().length;
 
-console.log({ numCPUs });
-
 @Injectable()
 export class AppClusterService {
   static clusterize(callback: Function): void {

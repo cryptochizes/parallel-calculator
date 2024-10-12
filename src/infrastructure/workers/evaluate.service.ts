@@ -184,16 +184,6 @@ class EvaluateInputService {
 
 const instance = new EvaluateInputService();
 
-// parentPort?.on('message', (data) => {
-//   console.log(`Worker data: ${workerData}`);
-
-//   const result = instance.execute(workerData);
-  
-//   console.log(`Result: ${result}`);
-  
-//   parentPort?.postMessage(result);
-// });
-
 workerpool.worker({
   evaluateExpression: instance.execute.bind(instance)
 });
