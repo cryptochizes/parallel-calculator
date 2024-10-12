@@ -81,5 +81,10 @@ because it's more I/O load here than CPU consumption.
 
 Managing of clusters and workers slod downs the server with this load even more than handling the calculations itself ;
 
+But we can see that Clustering has some benefits and it's visible: 
+- requests/sec higher
+- response_time.mean lower
+- response_time.median lower
 
-And I've add some tests: npm run test  =
+
+Also, I've add some tests: npm run test
