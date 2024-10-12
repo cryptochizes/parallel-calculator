@@ -85,7 +85,7 @@ It became ever worse.
 Probably 3000 req p/s it's too much to see benefits of workers and clusters in Node.js
 because it's more I/O load here than CPU consumption.
 
-Managing of clusters and workers slod downs the server with this load even more than handling the calculations itself ;
+Managing of clusters and workers slowdown the server with this load even more than handling the calculations itself for this application
 
 But we can see that Clustering has some benefits and it's visible: 
 - requests/sec higher
