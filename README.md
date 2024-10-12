@@ -1,6 +1,12 @@
 # parallel-calculator
 Parallel calculator
 
+Create the .env file
+
+```
+APP_NAME=parallel-calculatore
+APP_PORT=8080
+```
 
 Start the application:
 ./start.sh
