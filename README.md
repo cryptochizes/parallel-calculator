@@ -4,7 +4,7 @@ Parallel calculator
 Create the .env file
 
 ```
-APP_NAME=parallel-calculatore
+APP_NAME=parallel-calculator
 APP_PORT=8080
 ```
 
