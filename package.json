@@ -17,16 +17,7 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json",
-    "typeorm": "typeorm-ts-node-esm",
-    "migration:run": "typeorm -- -d ./dist/infrastructure/persistence/migrations-data-source.js migration:run",
-    "migration:create": "docker exec -it calculator sh ./scripts/create-migration.sh ./src/infrastructure/persistence/migrations $1",
-    "migration:generate": "docker exec -it calculator sh ./scripts/generate-migration.sh ./dist/infrastructure/persistence/migrations-data-source.js ./src/infrastructure/persistence/migrations $1",
-    "migration:dev:run": "docker exec -it calculator npm run typeorm migration:run -- -d ./dist/infrastructure/persistence/migrations-data-source.js",
-    "migration:dev:revert": "docker exec -it calculator npm run typeorm migration:revert -- -d ./dist/infrastructure/persistence/migrations-data-source.js",
-    "migration:dev:show": "docker exec -it calculator npm run typeorm migration:show -- -d ./dist/infrastructure/persistence/migrations-data-source.js",
-    "jobs": "node dist/infrastructure/processing/main.js",
-    "jobs:dev": "docker exec -it calculator node dist/infrastructure/processing/main.js"
+    "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "_moduleAliases": {
     "@application": "dist/applications/",
