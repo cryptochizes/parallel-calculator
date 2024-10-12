@@ -35,8 +35,6 @@ export class EvaluateInputUseCase extends UseCase<
   // }
 
   async execute(dto: IDecomposeEvaluationInput): Promise<number> {
-    this.logger.log(`Processing created Ethereum transaction: ${dto.expression}`);
-
     const postfixNotation = this.convertToPostfixNotation(dto.expression);
 
     // console.log(`Reverse Polish Notation: ${postfixNotation}`);

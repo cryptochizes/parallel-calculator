@@ -46,8 +46,6 @@ export interface IDecomposeEvaluationInput {
 
 class EvaluateInputService {
   execute(dto: IDecomposeEvaluationInput): number {
-    // this.logger.log(`Processing created Ethereum transaction: ${dto.expression}`);
-
     const postfixNotation = this.convertToPostfixNotation(dto.expression);
 
     // console.log(`Reverse Polish Notation: ${postfixNotation}`);
