@@ -65,13 +65,14 @@ async function bootstrap() {
   await app.listen(configService.getOrThrow("APP_PORT"), "0.0.0.0");
 }
 
-// AppClusterService.clusterize(bootstrap);
+// a little benefit
+AppClusterService.clusterize(bootstrap);
 
-void bootstrap().catch((error) => {
-  console.error(error);
+// void bootstrap().catch((error) => {
+//   console.error(error);
 
-  logger.error(`Failed to bootstrap ${appName}: ${error}`);
-});
+//   logger.error(`Failed to bootstrap ${appName}: ${error}`);
+// });
 
 process.on("uncaughtException", (error) => {
   logger.error(`Uncaught exception caught: ${error?.message}`);

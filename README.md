@@ -5,8 +5,9 @@ Parallel calculator
 Start the application:
 ./start.sh
 
-Using the artillery with the provided configuration - I've tested a few scenarious
+Using the artillery with the provided in artillery.yaml configuration - I've tested a few scenarious
 and here's the report:
+
 artillery run artillery.yaml    
 
 1. No clusters, no worker pools 3000 req/s
@@ -74,3 +75,11 @@ http.response_time:
 ```
 It became ever worse. 
 ```
+
+Probably 3000 req p/s it's too much to see benefits of workers and clusters in Node.js
+because it's more I/O load here than CPU consumption.
+
+Managing of clusters and workers slod downs the server with this load even more than handling the calculations itself ;
+
+
+And I've add some tests: npm run test  =
