@@ -10,30 +10,7 @@ import {
 import { ConfigService } from "@application/common/config";
 
 import { AppModule } from "@infrastructure/modules/app.module";
-import cluster from 'cluster';
-import * as os from 'os';
-
-const numCPUs = os.cpus().length;
-
-@Injectable()
-export class AppClusterService {
-  static clusterize(callback: Function): void {
-    if(cluster.isPrimary){
-      console.log(`Master server started on ${process.pid}`);
-      for (let i = 0; i < numCPUs; i++) {
-        cluster.fork();
-      }
-      cluster.on('exit', (worker, code, signal) => {
-        console.log(`Worker ${worker.process.pid} died. Restarting`);
-        cluster.fork();
-      });
-    } else {
-      callback();
-
-      console.log(`Cluster server started on ${process.pid}`)
-    }
-  }
-}
+import { AppClusterService } from "@infrastructure/cluster.service";
 
 const appName = process.env.APP_NAME;
 const logger = new Logger("bootstrap");
@@ -63,7 +40,7 @@ async function bootstrap() {
   await app.listen(configService.getOrThrow("APP_PORT"), "0.0.0.0");
 }
 
-// a little benefit
+// a little beneficial with high load of requests
 AppClusterService.clusterize(bootstrap);
 
 // void bootstrap().catch((error) => {
