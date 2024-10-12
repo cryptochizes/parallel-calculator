@@ -1,5 +1,10 @@
 // require('ts-node').register();
 
+// Here a copy of code from evaluate usecase
+// This code is not used in the application
+// but i leave it here for abiliity to 
+// test with worker_threads and workerpool
+
 import { Decimal as ExternalDecimal } from 'decimal.js';
 import workerpool from 'workerpool';
 
